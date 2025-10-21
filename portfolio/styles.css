@@ -92,6 +92,10 @@ p {
     transition: all 0.3s ease;
 }
 
+.navbar.scrolled {
+    background-color: #4CAF50 !important;
+}
+
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -122,7 +126,10 @@ p {
     text-decoration: none;
     color: #007bff;
     font-weight: 500;
+    position: relative;
 }
+
+
 
 .hamburger {
     display: none;
@@ -133,9 +140,21 @@ p {
 .bar {
     width: 25px;
     height: 3px;
-    background-color: #333;
+    background-color: #007bff;
     margin: 3px 0;
     transition: all 0.3s ease;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
 }
 
 /* Hero Section */
@@ -242,10 +261,28 @@ p {
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    position: relative;
+}
+
+.skill-category::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(78, 205, 196, 0.4), transparent);
+    transition: left 0.5s;
+}
+
+.skill-category:hover::before {
+    left: 100%;
 }
 
 .skill-category:hover {
-    transform: translateY(-5px);
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .skill-category h3 {
@@ -284,10 +321,28 @@ p {
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    position: relative;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(78, 205, 196, 0.4), transparent);
+    transition: left 0.5s;
+}
+
+.project-card:hover::before {
+    left: 100%;
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .project-image img {
@@ -629,6 +684,71 @@ footer {
 
 section {
     animation: fadeInUp 0.6s ease-out;
+}
+
+/* Resume Section */
+.resume {
+    background-color: #f8f9fa;
+}
+
+.resume-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.resume-section {
+    margin-bottom: 40px;
+}
+
+.resume-section h3 {
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.education-item {
+    margin-bottom: 20px;
+}
+
+.education-item h4 {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.institution {
+    color: #666;
+    font-style: italic;
+}
+
+.resume-actions {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #007bff;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
 }
 
 /* Smooth Scrolling */
