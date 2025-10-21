@@ -78,7 +78,7 @@ p {
 
 .btn-secondary:hover {
     background-color: #007bff;
-    color: rgb(246, 246, 248);
+    color: rgb(36, 214, 12);
     transform: translateY(-2px);
 }
 
@@ -87,13 +87,9 @@ p {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #4CAF50;
+    background-color: #00FFFF;
     z-index: 1000;
     transition: all 0.3s ease;
-}
-
-.navbar.scrolled {
-    background-color: #4CAF50 !important;
 }
 
 .nav-container {
@@ -132,9 +128,14 @@ p {
 
 
 .hamburger {
-    display: none;
+    display: flex;
     flex-direction: column;
     cursor: pointer;
+    position: relative;
+}
+
+.hamburger:hover {
+    transform: scale(1.1);
 }
 
 .bar {
@@ -167,7 +168,7 @@ p {
     background: url("pexels-jmeyer1220-612999.jpg");
     background-size: cover;
     background-position: center;
-    color: rgb(249, 252, 252);
+    color: rgb(254, 255, 254);
     padding-top: 80px;
 }
 
@@ -201,11 +202,11 @@ p {
 }
 
 .hero-image img {
-    width: 400px;
-    height: 400px;
+    width: 480px;
+    height: 450px;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid rgb(17, 222, 236);
+    border: 5px solid rgb(11, 17, 17);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
@@ -275,7 +276,7 @@ p {
 
 .skill-item {
     background-color: #007bff;
-    color: white;
+    color: rgb(230, 221, 221);
     padding: 5px 15px;
     border-radius: 20px;
     font-size: 0.9rem;
@@ -529,7 +530,7 @@ footer {
         left: -100%;
         top: 80px;
         flex-direction: column;
-        background-color: white;
+        background-color: rgb(167, 235, 9);
         width: 100%;
         text-align: center;
         transition: 0.3s;
@@ -673,31 +674,34 @@ section {
     margin-top: 40px;
 }
 
-/* Hamburger Menu */
-.hamburger {
+/* Dropdown Menu */
+.dropdown {
+    position: absolute;
+    top: 100%;
+    right: 2%;
+    background-color: #00FFFF;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     display: none;
-    flex-direction: column;
-    cursor: pointer;
+    min-width: 200px;
+    z-index: 1001;
 }
 
-.bar {
-    width: 25px;
-    height: 3px;
-    background-color: #007bff;
-    margin: 3px 0;
-    transition: all 0.3s ease;
+.dropdown.show {
+    display: block;
 }
 
-.hamburger.active .bar:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
+.dropdown a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
 }
 
-.hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active .bar:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
+.dropdown a:hover {
+    background-color: #c0c8c0;
 }
 
 /* Smooth Scrolling */
