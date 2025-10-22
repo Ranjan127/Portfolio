@@ -127,6 +127,48 @@ function validateEmail(email) {
     return re.test(String(email).toLowerCase());
 }
 
+// Contact form submission
+document.getElementById('contactForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+
+    const formData = new FormData(e.target);
+    const data = {
+        firstName: formData.get('firstName'),
+        email: formData.get('email'),
+        message: formData.get('message')
+    };
+
+    try {
+        const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            alert('Thank you! Your message has been sent successfully.');
+            e.target.reset();
+        } else {
+            alert('Error: ' + result.message);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again later.');
+    } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    }
+});
+
 // Add loading animation
 window.addEventListener('load', () => {
     document.body.style.opacity = '1';
